@@ -1,0 +1,91 @@
+<section class="flex-1 h-full overflow-y-auto custom-scrollbar bg-background p-8">
+      <div class="max-w-6xl mx-auto">
+        <!-- Header Actions -->
+        <div class="flex justify-between items-start mb-8">
+          <div class="flex items-center gap-6">
+            <img
+              class="w-24 h-24 rounded-xl border-2 border-neutral-800 object-cover shadow-xl"
+              data-alt="Detailed portrait of a professional man in a dark knit sweater, sharp focus, neutral modern office lighting"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqNrxVfZZ5DxUciq5MSuzGxTUd7QJVNwdwsagTjL9QAZlzIgsTF8Fqn44fKwWGP1KX0AzMP9I9c87pMtDwX9_YYZ8D8hMqV8m22HBtM65iDZ9063Lbu9d9-huLZuG5xIRMGykQuYawmMKLiJ11R7xNoEakAsQxaUChPBd7uT0FdBheAAh3xsw3-87Y5ZvphrJ07oX8cVuj-Ranu7IRGTpZwdDj5ElLSt2zQkMsDK8vdNG6qvKM19KtMnO-sZMx44hwoKpTnc4xPjN3"
+            />
+            <div>
+              <div class="flex items-center gap-3 mb-1">
+                <h2 class="font-headline-lg text-on-surface">{{usuarioDetalle.name}}</h2>
+                <span
+                  class="bg-primary-container/20 text-primary text-[10px] font-bold px-2 py-0.5 rounded border border-primary/20 flex items-center gap-1"
+                >
+                  <span
+                    class="material-symbols-outlined text-[12px]"
+                    data-icon="verified"
+                    data-weight="fill"
+                    >verified</span
+                  >
+                  ADMIN
+                </span>
+              </div>
+              <p class="text-neutral-500 font-body-md">{{usuarioDetalle.username}} • Joined March 2021</p>
+              <div class="flex gap-4 mt-3">
+                <a class="text-primary text-xs flex items-center gap-1 hover:underline" href="#">
+                  <span class="material-symbols-outlined text-sm" data-icon="link">link</span>
+                  github.com/{{usuarioDetalle.username}}
+                </a>
+                <a class="text-neutral-400 text-xs flex items-center gap-1" href="#">
+                  <span class="material-symbols-outlined text-sm" data-icon="location_on"
+                    >location_on</span
+                  >
+                  San Francisco, CA
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Bento Grid Content -->
+        <div class="grid grid-cols-12 gap-6">
+          <!-- Main Bio & Details -->
+          <div class="col-span-8 space-y-6">
+            <!-- System Access / Security -->
+            <div class="bg-[#262626] border border-[#333] rounded-xl p-6">
+              <h3 class="font-headline-md text-on-surface mb-6">System Access Control</h3>
+              <div class="space-y-4">
+                <div class="flex justify-between items-center py-2 border-b border-neutral-800">
+                  <span class="text-neutral-400 font-body-md">Global ID</span>
+                  <code class="text-xs bg-black px-2 py-1 rounded text-blue-400"
+                    >UID-9902-XJ12</code
+                  >
+                </div>
+                <div class="flex justify-between items-center py-2 border-b border-neutral-800">
+                  <span class="text-neutral-400 font-body-md">Account Status</span>
+                  <span class="flex items-center gap-2 text-green-500 text-xs font-semibold">
+                    <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                    Active / Premium
+                  </span>
+                </div>
+                <div class="flex justify-between items-center py-2 border-b border-neutral-800">
+                  <span class="text-neutral-400 font-body-md">Two-Factor Auth</span>
+                  <span class="text-neutral-200 text-sm font-medium">Enabled (Mobile App)</span>
+                </div>
+                <div class="flex justify-between items-center py-2">
+                  <span class="text-neutral-400 font-body-md">Last Activity</span>
+                  <span class="text-neutral-500 text-xs">Today, 10:42 AM from 192.168.1.45</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Sidebar Stats & Contact -->
+          <div class="col-span-4 space-y-6">
+            <!-- Contact Info Card -->
+            <div class="bg-[#262626] border border-[#333] rounded-xl p-6">
+              <h3 class="font-headline-md text-on-surface mb-6">Contact Information</h3>
+              <div class="space-y-4">
+                <div>
+                  <label class="text-[10px] uppercase font-bold text-neutral-500 tracking-wider"
+                    >Email Address</label
+                  >
+                  <p class="text-neutral-200 font-medium">{{usuarioDetalle.email}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

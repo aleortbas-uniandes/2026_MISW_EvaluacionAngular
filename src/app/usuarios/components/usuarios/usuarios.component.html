@@ -1,0 +1,57 @@
+<body class="font-body-md overflow-hidden">
+  <!-- SideNavBar -->
+  <aside
+    class="fixed left-0 top-0 h-full w-64 border-r border-neutral-800 bg-neutral-950 flex flex-col p-4 gap-2 font-['Inter'] text-sm antialiased z-50"
+  >
+    <nav class="space-y-1">
+      <a
+        class="flex items-center gap-3 bg-blue-600 text-white font-medium rounded-md px-3 py-2 active:scale-95 transition-transform"
+        href="#"
+      >
+        <span class="material-symbols-outlined" data-icon="group">group</span>
+        Users
+      </a>
+      <a
+        class="flex items-center gap-3 text-neutral-400 hover:text-neutral-100 hover:bg-neutral-900 transition-all duration-200 px-3 py-2 active:scale-95 transition-transform"
+        href="#"
+      >
+        <span class="material-symbols-outlined" data-icon="folder">folder</span>
+        Repositories
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Main Content Layout -->
+  <main class="ml-64 mt-auto h-[calc(100vh-4rem)] flex">
+    <!-- Left Pane: User List -->
+    <section
+      class="w-[380px] h-full border-r border-neutral-800 flex flex-col bg-surface-container-lowest overflow-hidden"
+    >
+      <div class="p-4 border-b border-neutral-800 flex justify-between items-center">
+        <h2 class="font-headline-md text-on-surface">Active Users</h2>
+      </div>
+      <div class="flex-1 overflow-y-auto custom-scrollbar p-3 space-y-2">
+        <!-- User Card Inactive -->
+         <!-- <div class="tarjeta" *ngFor="let u of usuarios"></div> -->
+        <div
+          class="flex items-center gap-3 p-3 bg-[#262626] rounded-lg cursor-pointer hover:bg-neutral-800 transition-colors border border-[#333]" *ngFor="let u of usuarios$  | async"
+        >
+          <div
+            class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center text-primary font-bold"
+          >
+            JD
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-semibold text-neutral-100 truncate">{{u.name}}</p>
+            <p class="text-xs text-neutral-500 truncate">{{u.email}}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Pane: User Details (Bento Grid Style) -->
+    <div *ngIf="selected">
+      <app-usuario-detalle [usuarioDetalle]="selectedUsuario"></app-usuario-detalle>
+    </div>
+  </main>
+</body>
