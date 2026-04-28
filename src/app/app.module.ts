@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsuariosModule } from './usuarios/usuarios.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -11,8 +12,9 @@ import { UsuariosModule } from './usuarios/usuarios.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    UsuariosModule
-  ],
+    UsuariosModule,
+    SharedModule
+],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
