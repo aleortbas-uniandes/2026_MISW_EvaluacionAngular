@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Usuarios } from '../../models/usuarios';
 
 @Component({
-  selector: 'app-usuario-detalle',
+  selector: 'app-usuarioDetalle',
   standalone: false,
   templateUrl: './usuarioDetalle.component.html',
   styleUrls: ['./usuarioDetalle.component.css']
