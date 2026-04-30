@@ -1,64 +1,63 @@
-<section class="flex-1 h-full overflow-y-auto custom-scrollbar bg-background p-8">
-      <div class="max-w-6xl mx-auto">
-        <div class="flex justify-between items-start mb-8">
-          <div class="flex items-center gap-6">
-            <img
-              class="w-24 h-24 rounded-xl border-2 border-neutral-800 object-cover shadow-xl"
-              data-alt="Detailed portrait of a professional man in a dark knit sweater, sharp focus, neutral modern office lighting"
-              src={{repositorie?.createdAt}}
-            />
-            <div>
-              <div class="flex items-center gap-3 mb-1">
-                <h2 class="font-headline-lg text-on-surface">{{repositorie?.createdAt}}</h2>
-                <span
-                  class="bg-primary-container/20 text-primary text-[10px] font-bold px-2 py-0.5 rounded border border-primary/20 flex items-center gap-1"
-                >
-                  {{repositorie?.createdAt}}
-                </span>
-              </div>
-              <div class="flex gap-4 mt-3">
-                <a class="text-primary text-xs flex items-center gap-1 hover:underline" href="#">
-                  <span class="material-symbols-outlined text-sm" data-icon="link">link</span>
-                  github.com/{{repositorie?.createdAt}}
-                </a>
-                <a class="text-neutral-400 text-xs flex items-center gap-1" href="#">
-                  <span class="material-symbols-outlined text-sm" data-icon="location_on"
-                    >location_on</span
-                  >
-                  {{repositorie?.createdAt}}
-                </a>
-              </div>
+<div class="ml-64 p-8 h-screen overflow-y-auto bg-background">
+  <div class="max-w-4xl mx-auto" *ngIf="repositorie">
+
+    <div class="flex items-center gap-4 mb-8">
+      <button [routerLink]="['/repositories']"
+        class="text-neutral-400 hover:text-white border border-neutral-700 rounded-lg px-3 py-1 text-sm">
+        ← Volver
+      </button>
+      <h1 class="text-2xl font-semibold text-neutral-100">{{ repositorie.name }}</h1>
+      <span class="bg-blue-900 text-blue-300 text-xs font-bold px-2 py-1 rounded">
+        ID: {{ repositorie.id }}
+      </span>
+    </div>
+
+    <div class="grid grid-cols-12 gap-6">
+
+      <div class="col-span-8">
+        <div class="bg-[#262626] border border-[#333] rounded-xl p-6">
+          <h3 class="text-neutral-100 font-semibold text-base mb-6">Información del repositorio</h3>
+          <div class="space-y-4">
+
+            <div class="flex items-center py-2 border-b border-neutral-800 px-2 gap-8">
+              <span class="text-neutral-400 text-sm w-32 shrink-0">ID</span>
+              <code class="text-xs bg-black px-2 py-1 rounded text-blue-400">{{ repositorie.id }}</code>
             </div>
-          </div>
-        </div>
-        <div class="grid grid-cols-12 gap-6">
-          <div class="col-span-8 space-y-6">
-            <div class="bg-[#262626] border border-[#333] rounded-xl p-6 w-full max-w-lg">
-              <h3 class="font-headline-md text-on-surface mb-6">Detalle usuario</h3>
-              <div class="space-y-4">
 
-                <div class="flex items-center py-2 border-b border-neutral-800 px-2 gap-8">
-                  <span class="text-neutral-400 font-body-md w-24 shrink-0">ID</span>
-                  <code class="text-xs bg-black px-2 py-1 rounded text-blue-400">{{repositorie?.id}}</code>
-                </div>
-
-                <div class="flex items-center py-2 border-b border-neutral-800 px-2 gap-8">
-                  <span class="text-neutral-400 font-body-md w-24 shrink-0">Name</span>
-                  <span class="text-neutral-200 text-xs font-semibold">{{repositorie?.name}}</span>
-                </div>
-
-                <div class="flex items-center py-2 border-b border-neutral-800 px-2 gap-8">
-                  <span class="text-neutral-400 font-body-md w-24 shrink-0">Email</span>
-                  <span class="text-neutral-200 text-sm font-medium">{{repositorie?.ownerId}}</span>
-                </div>
-
-                <div class="flex items-center py-2 border-b border-neutral-800 px-2 gap-8">
-                  <span class="text-neutral-400 font-body-md w-24 shrink-0">Role</span>
-                  <span class="text-neutral-200 text-sm font-medium">{{repositorie?.stars}}</span>
-                </div>
-              </div>
+            <div class="flex items-center py-2 border-b border-neutral-800 px-2 gap-8">
+              <span class="text-neutral-400 text-sm w-32 shrink-0">Nombre</span>
+              <span class="text-neutral-200 text-sm font-semibold">{{ repositorie.name }}</span>
             </div>
+
+            <div class="flex items-center py-2 border-b border-neutral-800 px-2 gap-8">
+              <span class="text-neutral-400 text-sm w-32 shrink-0">Descripción</span>
+              <span class="text-neutral-200 text-sm">{{ repositorie.description }}</span>
+            </div>
+
+            <div class="flex items-center py-2 border-b border-neutral-800 px-2 gap-8">
+              <span class="text-neutral-400 text-sm w-32 shrink-0">Owner ID</span>
+              <span class="text-neutral-200 text-sm">{{ repositorie.ownerId }}</span>
+            </div>
+
+            <div class="flex items-center py-2 px-2 gap-8">
+              <span class="text-neutral-400 text-sm w-32 shrink-0">Creado</span>
+              <span class="text-neutral-200 text-sm">{{ repositorie.createdAt }}</span>
+            </div>
+
           </div>
         </div>
       </div>
-    </section>
+
+      <div class="col-span-4">
+        <div class="bg-[#262626] border border-[#333] rounded-xl p-6">
+          <h3 class="text-neutral-100 font-semibold text-base mb-6">Estadísticas</h3>
+          <div class="flex flex-col items-center justify-center gap-2 py-4">
+            <span class="text-yellow-400 text-4xl font-bold">{{ repositorie.stars }}</span>
+            <span class="text-neutral-400 text-sm">Stars</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,7 +1,4 @@
-<body class="font-body-md overflow-hidden">
-  <!-- Main Content Layout -->
-  <main class="ml-64 mt-auto h-[calc(100vh-4rem)] flex">
-    <!-- Left Pane: User List -->
+    <main class="ml-64 mt-auto h-[calc(100vh-1rem)] flex">
     <section
       class="w-[380px] h-full border-r border-neutral-800 flex flex-col bg-surface-container-lowest overflow-hidden"
     >
@@ -9,8 +6,6 @@
         <h2 class="font-headline-md text-on-surface">Active Users</h2>
       </div>
       <div class="flex-1 overflow-y-auto custom-scrollbar p-3 space-y-2">
-        <!-- User Card Inactive -->
-         <!-- <div class="tarjeta" *ngFor="let u of usuarios"></div> -->
         <div
           class="flex items-center gap-3 p-3 bg-[#262626] rounded-lg cursor-pointer hover:bg-neutral-800 transition-colors border border-[#333]" *ngFor="let u of usuarios$  | async" 
           (click)="onSelected(u)"
@@ -28,9 +23,7 @@
       </div>
     </section>
 
-    <!-- Right Pane: User Details (Bento Grid Style) -->
     <div *ngIf="selected">
       <app-usuarioDetalle [usuarioDetalle]="selectedUsuario"></app-usuarioDetalle>
     </div>
   </main>
-</body>
